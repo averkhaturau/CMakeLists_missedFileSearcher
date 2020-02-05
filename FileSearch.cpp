@@ -79,7 +79,7 @@ std::map<std::filesystem::path, std::list<std::filesystem::path>> findAbsensSour
         {
             waitList.push_back( std::async([&resultMutex, &absent_fileNames, fname, file_content, cmakePath]() {
                 const std::regex filePattern(
-                    "[\\t\\n\\r\\s]+" + fname.generic_string() + "[\\t\\n\\r\\s]+"
+                    "[\\t\\n\\r\\s]+" + fname.generic_string() + "[\\t\\n\\r\\s\\)]+"
                 );
 
                 if (!std::regex_search(*file_content, filePattern) )
